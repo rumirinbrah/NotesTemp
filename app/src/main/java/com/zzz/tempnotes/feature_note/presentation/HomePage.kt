@@ -65,7 +65,9 @@ fun HomePage(
 
 
     //for handling back gestures when notes in detail mode
-    BackHandler {
+    BackHandler(
+        enabled = showFullNote
+    ) {
         if (showFullNote) {
             showFullNote = false
             currentNote = null
