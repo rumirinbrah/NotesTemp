@@ -31,7 +31,6 @@ fun CreateNoteDialog(
     onBodyChange : (String)->Unit,
     onSave : ()->Unit,
     onDismiss : ()->Unit,
-    modifier: Modifier = Modifier
 ) {
     Dialog(
         onDismissRequest = {

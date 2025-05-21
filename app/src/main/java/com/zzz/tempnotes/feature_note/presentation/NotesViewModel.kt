@@ -16,11 +16,11 @@ class NotesViewModel : ViewModel() {
     private val _uiState = MutableStateFlow(NoteUIState())
     val uiState = _uiState.asStateFlow()
 
+    //managing ids and last deleted note
     private var id: Int = 0
     private var lastDeletedNote: Note? = null
 
     fun addNote() {
-
         viewModelScope.launch {
             id += 1
             val note = Note(id , _uiState.value.title , _uiState.value.body)

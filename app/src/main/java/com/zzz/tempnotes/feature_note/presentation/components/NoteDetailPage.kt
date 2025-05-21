@@ -26,7 +26,6 @@ import com.zzz.tempnotes.feature_note.domain.model.Note
 fun NoteDetailPage(
     note: Note?,
     onDismiss :()->Unit,
-    modifier: Modifier = Modifier
 ) {
     Column(
         Modifier.fillMaxSize()
@@ -48,11 +47,11 @@ fun NoteDetailPage(
         }
         VerticalSpace()
         Text(
-            note?.title ?: "" ,
+            note?.title ?: "Unknown" ,
             fontSize = 20.sp ,
             modifier = Modifier.align(Alignment.CenterHorizontally),
             fontWeight = FontWeight.ExtraBold
         )
-        Text(note?.body ?:"", fontSize = 16.sp, fontWeight = FontWeight.Normal)
+        Text(note?.body ?: "Unknown", fontSize = 16.sp, fontWeight = FontWeight.Normal)
     }
 }

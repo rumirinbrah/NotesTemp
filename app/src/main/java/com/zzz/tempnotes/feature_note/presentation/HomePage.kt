@@ -58,12 +58,13 @@ fun HomePage(
     val notes by notesViewModel.notes.collectAsStateWithLifecycle()
     val state by notesViewModel.uiState.collectAsStateWithLifecycle()
 
+    //for toggling details
     var dialogVisible by remember { mutableStateOf(false) }
     var showFullNote by remember { mutableStateOf(false) }
     var currentNote by remember { mutableStateOf<Note?>(null) }
 
-    val context = LocalContext.current
 
+    //for handling back gestures when notes in detail mode
     BackHandler {
         if (showFullNote) {
             showFullNote = false
@@ -112,6 +113,7 @@ fun HomePage(
             }
         }
 
+        //add fab
         FloatingActionButton(
             onClick = {
                 dialogVisible = true
@@ -122,6 +124,8 @@ fun HomePage(
         ) {
             Icon(imageVector = Icons.Default.Add , contentDescription = null)
         }
+
+        //detailed view
         if (dialogVisible) {
             CreateNoteDialog(
                 state = state ,
